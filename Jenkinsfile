@@ -25,7 +25,7 @@ pipeline {
         stage('Init') {
             steps {
                 withAWS(credentials: 'aws-cred', region: 'ap-south-1') {
-                sh 'terraform -chdir=eks/ init -reconfigure'
+                sh 'terraform -chdir=eks/ init -migrate-state'
                 }
             }
         }
